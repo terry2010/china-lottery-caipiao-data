@@ -1,0 +1,55 @@
+name: update-lottery-data
+
+on:
+  schedule:
+    # 每天 22:40 北京时间（14:40 UTC），覆盖当天所有彩种开奖
+    - cron: "40 14 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "回补全部历史期的奖级详情（慢，一次性使用）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lottery-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Fetch lottery data
+        run: |
+          if [ "${{ inputs.backfill }}" = "true" ]; then
+            python scripts/fetch_lottery.py --full
+          else
+            python scripts/fetch_lottery.py
+          fi
+
+      - name: Render dashboard
+        run: python scripts/render_dashboard.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ DASHBOARD.md
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore(data): auto update $(date -u +%Y-%m-%d)"
+            git push
+          fi
