@@ -69282,7 +69282,26 @@
     "3"
    ],
    "issue": "26223",
-   "date": "2026-08-21"
+   "date": "2026-08-21",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 14219
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 15915
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 0
+    }
+   ],
+   "sales": 55488256,
+   "zuxuan": "z3"
   },
   {
    "numbers": [
@@ -69291,7 +69310,26 @@
     "2"
    ],
    "issue": "26224",
-   "date": "2026-08-22"
+   "date": "2026-08-22",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 15945
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 52282
+    }
+   ],
+   "sales": 51735100,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69300,7 +69338,26 @@
     "6"
    ],
    "issue": "26225",
-   "date": "2026-08-23"
+   "date": "2026-08-23",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 11640
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 14221
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 0
+    }
+   ],
+   "sales": 51392064,
+   "zuxuan": "z3"
   },
   {
    "numbers": [
@@ -69309,7 +69366,26 @@
     "1"
    ],
    "issue": "26226",
-   "date": "2026-08-24"
+   "date": "2026-08-24",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10140
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 52879
+    }
+   ],
+   "sales": 52530182,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69318,7 +69394,26 @@
     "1"
    ],
    "issue": "26227",
-   "date": "2026-08-25"
+   "date": "2026-08-25",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 8707
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 49827
+    }
+   ],
+   "sales": 49684540,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69327,7 +69422,26 @@
     "0"
    ],
    "issue": "26228",
-   "date": "2026-08-26"
+   "date": "2026-08-26",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 23210
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 74970
+    }
+   ],
+   "sales": 49804762,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69336,7 +69450,26 @@
     "0"
    ],
    "issue": "26229",
-   "date": "2026-08-27"
+   "date": "2026-08-27",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10463
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 41110
+    }
+   ],
+   "sales": 50010918,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69345,7 +69478,26 @@
     "6"
    ],
    "issue": "26230",
-   "date": "2026-08-28"
+   "date": "2026-08-28",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 21714
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 59535
+    }
+   ],
+   "sales": 47782008,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69354,7 +69506,26 @@
     "7"
    ],
    "issue": "26231",
-   "date": "2026-08-29"
+   "date": "2026-08-29",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 15266
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 66662
+    }
+   ],
+   "sales": 44871398,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69363,7 +69534,26 @@
     "2"
    ],
    "issue": "26232",
-   "date": "2026-08-30"
+   "date": "2026-08-30",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 7889
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 34447
+    }
+   ],
+   "sales": 46507116,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69372,7 +69562,26 @@
     "3"
    ],
    "issue": "26233",
-   "date": "2026-08-31"
+   "date": "2026-08-31",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 9814
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 45885
+    }
+   ],
+   "sales": 48565444,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69381,7 +69590,26 @@
     "1"
    ],
    "issue": "26234",
-   "date": "2026-09-01"
+   "date": "2026-09-01",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 6911
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 18200
+    }
+   ],
+   "sales": 49956044,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69390,7 +69618,26 @@
     "9"
    ],
    "issue": "26235",
-   "date": "2026-09-02"
+   "date": "2026-09-02",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 18520
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 48188
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 0
+    }
+   ],
+   "sales": 48819452,
+   "zuxuan": "z3"
   },
   {
    "numbers": [
@@ -69399,7 +69646,26 @@
     "3"
    ],
    "issue": "26236",
-   "date": "2026-09-03"
+   "date": "2026-09-03",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10114
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 32855
+    }
+   ],
+   "sales": 43765622,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69408,7 +69674,26 @@
     "0"
    ],
    "issue": "26237",
-   "date": "2026-09-04"
+   "date": "2026-09-04",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 9754
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 38018
+    }
+   ],
+   "sales": 45699530,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69417,7 +69702,26 @@
     "1"
    ],
    "issue": "26238",
-   "date": "2026-09-05"
+   "date": "2026-09-05",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 11385
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 45086
+    }
+   ],
+   "sales": 44127942,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69426,7 +69730,26 @@
     "0"
    ],
    "issue": "26239",
-   "date": "2026-09-06"
+   "date": "2026-09-06",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10626
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 46126
+    }
+   ],
+   "sales": 45334508,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69435,7 +69758,26 @@
     "9"
    ],
    "issue": "26240",
-   "date": "2026-09-07"
+   "date": "2026-09-07",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 17980
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 45368
+    }
+   ],
+   "sales": 46573056,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69444,7 +69786,26 @@
     "0"
    ],
    "issue": "26241",
-   "date": "2026-09-08"
+   "date": "2026-09-08",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 8565
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 17833
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 0
+    }
+   ],
+   "sales": 46741758,
+   "zuxuan": "z3"
   },
   {
    "numbers": [
@@ -69453,7 +69814,26 @@
     "4"
    ],
    "issue": "26242",
-   "date": "2026-09-09"
+   "date": "2026-09-09",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 12937
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 15800
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 0
+    }
+   ],
+   "sales": 44797822,
+   "zuxuan": "z3"
   },
   {
    "numbers": [
@@ -69462,7 +69842,26 @@
     "5"
    ],
    "issue": "26243",
-   "date": "2026-09-10"
+   "date": "2026-09-10",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 22435
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 48068
+    }
+   ],
+   "sales": 46887950,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69471,7 +69870,26 @@
     "0"
    ],
    "issue": "26244",
-   "date": "2026-09-11"
+   "date": "2026-09-11",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10837
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 47359
+    }
+   ],
+   "sales": 47233440,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69480,7 +69898,26 @@
     "5"
    ],
    "issue": "26245",
-   "date": "2026-09-12"
+   "date": "2026-09-12",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10670
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 53795
+    }
+   ],
+   "sales": 45967138,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69489,7 +69926,26 @@
     "6"
    ],
    "issue": "26246",
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 9831
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 53668
+    }
+   ],
+   "sales": 45422344,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69498,7 +69954,26 @@
     "1"
    ],
    "issue": "26247",
-   "date": "2026-09-14"
+   "date": "2026-09-14",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 11585
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 42909
+    }
+   ],
+   "sales": 46408276,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69507,7 +69982,26 @@
     "6"
    ],
    "issue": "26248",
-   "date": "2026-09-15"
+   "date": "2026-09-15",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 21721
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 56661
+    }
+   ],
+   "sales": 47206176,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69516,7 +70010,26 @@
     "2"
    ],
    "issue": "26249",
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 22596
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 76871
+    }
+   ],
+   "sales": 49480896,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69525,7 +70038,26 @@
     "5"
    ],
    "issue": "26250",
-   "date": "2026-09-17"
+   "date": "2026-09-17",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 26028
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 64536
+    }
+   ],
+   "sales": 51271804,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69534,7 +70066,26 @@
     "7"
    ],
    "issue": "26251",
-   "date": "2026-09-18"
+   "date": "2026-09-18",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 15439
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 50348
+    }
+   ],
+   "sales": 53213994,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -69543,7 +70094,26 @@
     "0"
    ],
    "issue": "26252",
-   "date": "2026-09-19"
+   "date": "2026-09-19",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 1040,
+     "count": 10161
+    },
+    {
+     "level": 2,
+     "money": 346,
+     "count": 0
+    },
+    {
+     "level": 3,
+     "money": 173,
+     "count": 43032
+    }
+   ],
+   "sales": 53823368,
+   "zuxuan": "z6"
   },
   {
    "numbers": [
@@ -71226,5 +71796,5 @@
    "zuxuan": "z3"
   }
  ],
- "updated_at": "2026-11-22 23:46:56"
+ "updated_at": "2026-11-23 00:32:20"
 }

@@ -51630,7 +51630,41 @@
     "15"
    ],
    "issue": "2026045",
-   "date": "2026-04-23"
+   "date": "2026-04-23",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6214166,
+     "count": 12
+    },
+    {
+     "level": 2,
+     "money": 444885,
+     "count": 131
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1168
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 65793
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1223184
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 9721427
+    }
+   ],
+   "sales": 395637026,
+   "pool": 1559981238
   },
   {
    "front": [
@@ -51645,7 +51679,41 @@
     "16"
    ],
    "issue": "2026046",
-   "date": "2026-04-26"
+   "date": "2026-04-26",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 8506512,
+     "count": 5
+    },
+    {
+     "level": 2,
+     "money": 614035,
+     "count": 114
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1354
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 65407
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1297231
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 8424133
+    }
+   ],
+   "sales": 425615512,
+   "pool": 1535111504
   },
   {
    "front": [
@@ -51660,7 +51728,41 @@
     "07"
    ],
    "issue": "2026047",
-   "date": "2026-04-28"
+   "date": "2026-04-28",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6564632,
+     "count": 6
+    },
+    {
+     "level": 2,
+     "money": 139595,
+     "count": 269
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1784
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 82590
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1387812
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 12954820
+    }
+   ],
+   "sales": 383992530,
+   "pool": 1505111504
   },
   {
    "front": [
@@ -51675,7 +51777,41 @@
     "01"
    ],
    "issue": "2026048",
-   "date": "2026-04-30"
+   "date": "2026-04-30",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 0,
+     "count": 0
+    },
+    {
+     "level": 2,
+     "money": 473459,
+     "count": 128
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1043
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 58802
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1172287
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 8255243
+    }
+   ],
+   "sales": 381163108,
+   "pool": 1520262206
   },
   {
    "front": [
@@ -51690,7 +51826,41 @@
     "02"
    ],
    "issue": "2026049",
-   "date": "2026-05-03"
+   "date": "2026-05-03",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6941614,
+     "count": 6
+    },
+    {
+     "level": 2,
+     "money": 416060,
+     "count": 112
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1158
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 63374
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1251964
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 10879805
+    }
+   ],
+   "sales": 378548054,
+   "pool": 1490262206
   },
   {
    "front": [
@@ -51705,7 +51875,41 @@
     "03"
    ],
    "issue": "2026050",
-   "date": "2026-05-05"
+   "date": "2026-05-05",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 7220345,
+     "count": 4
+    },
+    {
+     "level": 2,
+     "money": 408339,
+     "count": 87
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1462
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 75625
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1451006
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 10695426
+    }
+   ],
+   "sales": 368215788,
+   "pool": 1470262206
   },
   {
    "front": [
@@ -51720,7 +51924,41 @@
     "10"
    ],
    "issue": "2026051",
-   "date": "2026-05-07"
+   "date": "2026-05-07",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5728242,
+     "count": 14
+    },
+    {
+     "level": 2,
+     "money": 215775,
+     "count": 189
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1646
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 81626
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1393339
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11806730
+    }
+   ],
+   "sales": 386809756,
+   "pool": 1400262206
   },
   {
    "front": [
@@ -51735,7 +51973,41 @@
     "11"
    ],
    "issue": "2026052",
-   "date": "2026-05-10"
+   "date": "2026-05-10",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 4166666,
+     "count": 24
+    },
+    {
+     "level": 2,
+     "money": 103058,
+     "count": 257
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2670
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 116865
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1905046
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 13011591
+    }
+   ],
+   "sales": 417267288,
+   "pool": 1306883761
   },
   {
    "front": [
@@ -51750,7 +52022,41 @@
     "02"
    ],
    "issue": "2026053",
-   "date": "2026-05-12"
+   "date": "2026-05-12",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 7002350,
+     "count": 6
+    },
+    {
+     "level": 2,
+     "money": 353355,
+     "count": 136
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1694
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 78639
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1467666
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 9233265
+    }
+   ],
+   "sales": 395029142,
+   "pool": 1276883761
   },
   {
    "front": [
@@ -51765,7 +52071,41 @@
     "02"
    ],
    "issue": "2026054",
-   "date": "2026-05-14"
+   "date": "2026-05-14",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 8421032,
+     "count": 5
+    },
+    {
+     "level": 2,
+     "money": 1021203,
+     "count": 67
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 848
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 48026
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1119488
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 7428441
+    }
+   ],
+   "sales": 391858874,
+   "pool": 1251883761
   },
   {
    "front": [
@@ -51780,7 +52120,41 @@
     "13"
    ],
    "issue": "2026055",
-   "date": "2026-05-17"
+   "date": "2026-05-17",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 10000000,
+     "count": 3
+    },
+    {
+     "level": 2,
+     "money": 392861,
+     "count": 155
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1238
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 73744
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1274943
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11158110
+    }
+   ],
+   "sales": 422769486,
+   "pool": 1237107160
   },
   {
    "front": [
@@ -51795,7 +52169,41 @@
     "05"
    ],
    "issue": "2026056",
-   "date": "2026-05-19"
+   "date": "2026-05-19",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 10000000,
+     "count": 2
+    },
+    {
+     "level": 2,
+     "money": 589039,
+     "count": 86
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1013
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 62039
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1251026
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11290382
+    }
+   ],
+   "sales": 391304582,
+   "pool": 1229771516
   },
   {
    "front": [
@@ -51810,7 +52218,41 @@
     "07"
    ],
    "issue": "2026057",
-   "date": "2026-05-21"
+   "date": "2026-05-21",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6920687,
+     "count": 6
+    },
+    {
+     "level": 2,
+     "money": 422903,
+     "count": 109
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1249
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 65858
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1317985
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 12380540
+    }
+   ],
+   "sales": 397400020,
+   "pool": 1199771516
   },
   {
    "front": [
@@ -51825,7 +52267,41 @@
     "01"
    ],
    "issue": "2026058",
-   "date": "2026-05-24"
+   "date": "2026-05-24",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6504451,
+     "count": 9
+    },
+    {
+     "level": 2,
+     "money": 351689,
+     "count": 154
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1811
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 84493
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1486079
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11106502
+    }
+   ],
+   "sales": 425121686,
+   "pool": 1154771516
   },
   {
    "front": [
@@ -51840,7 +52316,41 @@
     "15"
    ],
    "issue": "2026059",
-   "date": "2026-05-26"
+   "date": "2026-05-26",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 10000000,
+     "count": 3
+    },
+    {
+     "level": 2,
+     "money": 441123,
+     "count": 138
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1082
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 59810
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1242643
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 8313970
+    }
+   ],
+   "sales": 392773558,
+   "pool": 1139990273
   },
   {
    "front": [
@@ -51855,7 +52365,41 @@
     "11"
    ],
    "issue": "2026060",
-   "date": "2026-05-28"
+   "date": "2026-05-28",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5502014,
+     "count": 18
+    },
+    {
+     "level": 2,
+     "money": 159933,
+     "count": 226
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2216
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 101083
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1778760
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 9198612
+    }
+   ],
+   "sales": 398771788,
+   "pool": 1049990273
   },
   {
    "front": [
@@ -51870,7 +52414,41 @@
     "07"
    ],
    "issue": "2026061",
-   "date": "2026-05-31"
+   "date": "2026-05-31",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6130798,
+     "count": 8
+    },
+    {
+     "level": 2,
+     "money": 268041,
+     "count": 135
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1722
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 94790
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1772167
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 13333106
+    }
+   ],
+   "sales": 429422172,
+   "pool": 1009990273
   },
   {
    "front": [
@@ -51885,7 +52463,41 @@
     "09"
    ],
    "issue": "2026062",
-   "date": "2026-06-02"
+   "date": "2026-06-02",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 3333333,
+     "count": 30
+    },
+    {
+     "level": 2,
+     "money": 6000,
+     "count": 139
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 4856
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 186149
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 2632091
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 27657333
+    }
+   ],
+   "sales": 402189304,
+   "pool": 909990283
   },
   {
    "front": [
@@ -51900,7 +52512,41 @@
     "02"
    ],
    "issue": "2026063",
-   "date": "2026-06-04"
+   "date": "2026-06-04",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5000000,
+     "count": 20
+    },
+    {
+     "level": 2,
+     "money": 234108,
+     "count": 117
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2107
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 98547
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1692061
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 12886954
+    }
+   ],
+   "sales": 393294950,
+   "pool": 816837950
   },
   {
    "front": [
@@ -51915,7 +52561,41 @@
     "15"
    ],
    "issue": "2026064",
-   "date": "2026-06-07"
+   "date": "2026-06-07",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6021460,
+     "count": 15
+    },
+    {
+     "level": 2,
+     "money": 364807,
+     "count": 168
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1387
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 78426
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1528600
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 7950609
+    }
+   ],
+   "sales": 427210484,
+   "pool": 741837950
   },
   {
    "front": [
@@ -51930,7 +52610,41 @@
     "02"
    ],
    "issue": "2026065",
-   "date": "2026-06-09"
+   "date": "2026-06-09",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6944530,
+     "count": 7
+    },
+    {
+     "level": 2,
+     "money": 286562,
+     "count": 190
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1222
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 68323
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1347248
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 8228543
+    }
+   ],
+   "sales": 386314046,
+   "pool": 706837950
   },
   {
    "front": [
@@ -51945,7 +52659,41 @@
     "16"
    ],
    "issue": "2026066",
-   "date": "2026-06-11"
+   "date": "2026-06-11",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6728458,
+     "count": 7
+    },
+    {
+     "level": 2,
+     "money": 384101,
+     "count": 126
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1292
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 68265
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1343822
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 10915668
+    }
+   ],
+   "sales": 392786646,
+   "pool": 671837950
   },
   {
    "front": [
@@ -51960,7 +52708,41 @@
     "13"
    ],
    "issue": "2026067",
-   "date": "2026-06-14"
+   "date": "2026-06-14",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 10000000,
+     "count": 3
+    },
+    {
+     "level": 2,
+     "money": 747481,
+     "count": 89
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 973
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 56937
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1193755
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 9646709
+    }
+   ],
+   "sales": 414869642,
+   "pool": 658469423
   },
   {
    "front": [
@@ -51975,7 +52757,41 @@
     "04"
    ],
    "issue": "2026068",
-   "date": "2026-06-16"
+   "date": "2026-06-16",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5649404,
+     "count": 14
+    },
+    {
+     "level": 2,
+     "money": 295664,
+     "count": 123
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2419
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 73467
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1350496
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 12095581
+    }
+   ],
+   "sales": 379517740,
+   "pool": 588469423
   },
   {
    "front": [
@@ -51990,7 +52806,41 @@
     "08"
    ],
    "issue": "2026069",
-   "date": "2026-06-18"
+   "date": "2026-06-18",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 4545454,
+     "count": 22
+    },
+    {
+     "level": 2,
+     "money": 19746,
+     "count": 955
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1629
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 79829
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1472714
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 16710739
+    }
+   ],
+   "sales": 373992648,
+   "pool": 493183968
   },
   {
    "front": [
@@ -52005,7 +52855,41 @@
     "08"
    ],
    "issue": "2026070",
-   "date": "2026-06-21"
+   "date": "2026-06-21",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5811271,
+     "count": 11
+    },
+    {
+     "level": 2,
+     "money": 165258,
+     "count": 216
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2030
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 98536
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1700584
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11007971
+    }
+   ],
+   "sales": 398555946,
+   "pool": 438183968
   },
   {
    "front": [
@@ -52020,7 +52904,41 @@
     "05"
    ],
    "issue": "2026071",
-   "date": "2026-06-23"
+   "date": "2026-06-23",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 5867768,
+     "count": 8
+    },
+    {
+     "level": 2,
+     "money": 229492,
+     "count": 121
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 2419
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 121168
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1503066
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11221596
+    }
+   ],
+   "sales": 373089958,
+   "pool": 398183968
   },
   {
    "front": [
@@ -52035,7 +52953,41 @@
     "01"
    ],
    "issue": "2026072",
-   "date": "2026-06-25"
+   "date": "2026-06-25",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 8287457,
+     "count": 4
+    },
+    {
+     "level": 2,
+     "money": 367827,
+     "count": 143
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1314
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 62488
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1269104
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 8524438
+    }
+   ],
+   "sales": 377591844,
+   "pool": 378183968
   },
   {
    "front": [
@@ -52050,7 +53002,41 @@
     "08"
    ],
    "issue": "2026073",
-   "date": "2026-06-28"
+   "date": "2026-06-28",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 6111492,
+     "count": 10
+    },
+    {
+     "level": 2,
+     "money": 326909,
+     "count": 136
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 1395
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 74961
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1464286
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 11239744
+    }
+   ],
+   "sales": 398594042,
+   "pool": 328183968
   },
   {
    "front": [
@@ -52065,7 +53051,41 @@
     "04"
    ],
    "issue": "2026074",
-   "date": "2026-06-30"
+   "date": "2026-06-30",
+   "prizes": [
+    {
+     "level": 1,
+     "money": 8277839,
+     "count": 4
+    },
+    {
+     "level": 2,
+     "money": 535157,
+     "count": 98
+    },
+    {
+     "level": 3,
+     "money": 3000,
+     "count": 994
+    },
+    {
+     "level": 4,
+     "money": 200,
+     "count": 57390
+    },
+    {
+     "level": 5,
+     "money": 10,
+     "count": 1199876
+    },
+    {
+     "level": 6,
+     "money": 5,
+     "count": 9388053
+    }
+   ],
+   "sales": 370952514,
+   "pool": 308183968
   },
   {
    "front": [
@@ -55008,5 +56028,5 @@
    "pool": 1154982023
   }
  ],
- "updated_at": "2026-11-22 23:40:54"
+ "updated_at": "2026-11-23 00:28:30"
 }
