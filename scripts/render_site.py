@@ -113,7 +113,8 @@ def card(code, payload, latest_for_js):
 <section class="card" id="{code}">
   <header>
     <h2>{payload.get('game', code)}<span class="code">{code}</span></h2>
-    <button class="share" data-game="{code}" title="分享本彩种">↗ 分享</button>
+    <span class="acts"><button class="share" data-img="{code}" title="生成分享图片">🖼</button>
+    <button class="share" data-game="{code}" title="分享本彩种">↗ 分享</button></span>
   </header>
   <div class="issue">第 <b>{r['issue']}</b> 期 · {r['date']} · {DRAW_DAYS.get(code,'')}</div>
   {nums_html(code, r)}
@@ -157,6 +158,7 @@ h1 small{color:var(--sub);font-weight:400;font-size:13px}
 .card h2 .code{color:var(--sub);font-size:11px;font-weight:400;margin-left:6px;background:#f0f2f5;padding:1px 6px;border-radius:6px}
 .share{border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:8px;padding:4px 10px;font-size:12.5px;cursor:pointer}
 .share:hover{background:#1f6feb;color:#fff}
+.acts{display:flex;gap:6px}
 .issue{color:var(--sub);font-size:13px;margin:6px 0 8px}
 .nums{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 8px}
 .ball{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
@@ -192,22 +194,17 @@ footer a{color:var(--blue);text-decoration:none}
 </div></header>
 <div class="wrap">
   <p class="updated">更新于 <b id="updated">__UPDATED__</b>（北京时间） · 数据源 500.com ·
-    <a href="index.json" style="color:var(--blue)">index.json</a> ·
-    <a href="latest.json" style="color:var(--blue)">latest.json</a></p>
+    <a href="https://github.com/terry2010/china-lottery-caipiao-data" style="color:var(--blue)" target="_blank" rel="noopener">GitHub 项目 ↗</a></p>
   <div class="notice">数据仅供研究学习，不构成购彩建议。开奖结果随机，历史数据无法预测未来。</div>
   <div class="grid">__CARDS__</div>
   <footer>
-    <b>开放数据（JSON，无需密钥）</b><br>
-    · 全彩种最新一期：<a href="latest.json">latest.json</a><br>
-    · 数据清单：<a href="index.json">index.json</a><br>
-    · 单彩种全历史：<code>data/{code}.json</code>（如 <a href="__RAW_BASE__/data/ssq.json">data/ssq.json</a>）<br>
-    <br>
-    项目仓库：<a href="https://github.com/terry2010/china-lottery-caipiao-data">terry2010/china-lottery-caipiao-data</a> · MIT License<br>
+    开源数据集（JSON 每日更新）：<a href="https://github.com/terry2010/china-lottery-caipiao-data">terry2010/china-lottery-caipiao-data</a> · MIT License<br>
     已知限制：快乐8 无分奖级数据；福彩3D 约 2022 年起中奖注数缺失；官方不公布购买人数。
   </footer>
 </div>
 <div id="toast"></div>
 <div id="menu"><div class="sheet">
+  <button data-act="image">🖼 生成分享图片</button>
   <button data-act="copyText">📋 复制开奖结果文本</button>
   <button data-act="copyLink">🔗 复制本页链接</button>
   <button data-act="weibo">微博分享</button>
@@ -234,15 +231,95 @@ function shareText(code) {
   if (r.sales) s += `｜销量 ${fmt(r.sales)} 元`;
   return s + `｜${SITE}#${code}`;
 }
+/* ---------- 分享图片生成 ---------- */
+function rr(x, a, b, w, h, r){ x.beginPath(); x.moveTo(a+r,b); x.arcTo(a+w,b,a+w,b+h,r);
+  x.arcTo(a+w,b+h,a,b+h,r); x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath(); }
+function ball(x, cx, cy, n, color){ const g = x.createRadialGradient(cx-6,cy-7,2,cx,cy,19);
+  g.addColorStop(0, color === "#d92b2b" ? "#ff7b7b" : "#7eb0ff"); g.addColorStop(1, color);
+  x.fillStyle = g; x.beginPath(); x.arc(cx,cy,19,0,7); x.fill();
+  x.fillStyle = "#fff"; x.font = "bold 15px sans-serif"; x.textAlign = "center";
+  x.textBaseline = "middle"; x.fillText(n, cx, cy+1); x.textAlign = "left"; x.textBaseline = "alphabetic"; }
+function digitBox(x, a, y, n){ rr(x, a, y-26, 34, 40, 6); x.fillStyle = "#fff"; x.fill();
+  x.strokeStyle = "#e5e7eb"; x.lineWidth = 1.5; x.stroke();
+  x.fillStyle = "#d92b2b"; x.fillRect(a, y+8, 34, 3);
+  x.fillStyle = "#1f2329"; x.font = "bold 20px sans-serif"; x.textAlign = "center";
+  x.textBaseline = "middle"; x.fillText(n, a+17, y-6); x.textAlign = "left"; x.textBaseline = "alphabetic"; }
+async function shareImage(code){
+  const g = DATA.games[code] || DATA.games.ssq, r = g.latest;
+  const W = 880, P = 40;
+  const allNums = r.front ? r.front.concat(r.back) : (r.numbers || []);
+  const useBalls = !!r.front || allNums.some(n => String(n).length > 1);
+  const rows = Math.ceil(allNums.length / (useBalls ? 11 : 16));
+  const prizes = r.prizes || [];
+  const metaH = (r.sales || r.pool) ? 40 : 0;
+  const H = P*2 + 96 + rows*60 + metaH + (prizes.length ? 52 + prizes.length*38 : 0) + 64;
+  const c = document.createElement("canvas"); c.width = W*2; c.height = H*2;
+  const x = c.getContext("2d"); x.scale(2, 2);
+  x.fillStyle = "#eef1f6"; x.fillRect(0, 0, W, H);
+  rr(x, P, P, W-2*P, H-2*P, 16); x.fillStyle = "#fff"; x.fill();
+  x.strokeStyle = "#e5e7eb"; x.lineWidth = 1; x.stroke();
+  let y = P + 44;
+  x.fillStyle = "#1f2329"; x.font = "bold 30px 'PingFang SC','Microsoft YaHei',sans-serif";
+  x.fillText(g.name, P+26, y);
+  x.fillStyle = "#6b7280"; x.font = "15px sans-serif"; x.textAlign = "right";
+  x.fillText("第 " + r.issue + " 期", W-P-26, y); x.textAlign = "left";
+  y += 32; x.fillText("开奖日期 " + r.date, P+26, y); y += 44;
+  if (r.front) {
+    let cx = P+26+19;
+    r.front.forEach(n => { ball(x, cx, y-8, n, "#d92b2b"); cx += 46; });
+    cx += 20;
+    r.back.forEach(n => { ball(x, cx, y-8, n, "#1f6feb"); cx += 46; });
+  } else if (useBalls) {
+    let cx = P+26+19, col = 0;
+    allNums.forEach(n => { ball(x, cx, y-8, n, "#d92b2b"); cx += 46;
+      if (++col === 11) { col = 0; cx = P+26+19; y += 60; } });
+  } else {
+    let dx = P+26, col = 0;
+    allNums.forEach(n => { digitBox(x, dx, y, n); dx += 42;
+      if (++col === 16) { col = 0; dx = P+26; y += 52; } });
+  }
+  y += 34;
+  if (r.sales || r.pool) {
+    x.fillStyle = "#6b7280"; x.font = "14px sans-serif";
+    let s = "";
+    if (r.sales) s += "销售额 " + fmt(r.sales) + " 元";
+    if (r.pool) s += (s ? "　·　" : "") + "奖池 " + fmt(r.pool) + " 元";
+    x.fillText(s, P+26, y); y += 40;
+  }
+  if (prizes.length) {
+    const names = {1:"一等奖",2:"二等奖",3:"三等奖",4:"四等奖",5:"五等奖",6:"六等奖",7:"七等奖",8:"八等奖",9:"九等奖"};
+    const zh = {sd:["直选","组选三","组选六"], pls:["直选","组选三","组选六"]}[code];
+    x.font = "14px sans-serif"; x.fillStyle = "#9ca3af";
+    x.fillText("奖级", P+26, y); x.textAlign = "right";
+    x.fillText("单注奖金(元)", W/2+120, y); x.fillText("中奖注数", W-P-26, y); x.textAlign = "left";
+    y += 8; x.strokeStyle = "#e5e7eb"; x.beginPath(); x.moveTo(P+26,y); x.lineTo(W-P-26,y); x.stroke(); y += 30;
+    prizes.forEach(p => { x.fillStyle = "#1f2329"; x.font = "14px sans-serif";
+      x.fillText((zh && zh[p.level-1]) || names[p.level] || (p.level + "等奖"), P+26, y);
+      x.textAlign = "right"; x.fillText(fmt(p.money), W/2+120, y); x.fillText(fmt(p.count), W-P-26, y);
+      x.textAlign = "left"; y += 38; });
+  }
+  x.fillStyle = "#9ca3af"; x.font = "13px sans-serif"; y = H - P + 8;
+  x.fillText(SITE.replace("https://","") + " · 每日自动更新 · 仅供研究", P+26, y);
+  c.toBlob(async b => {
+    const f = new File([b], `${code}-${r.issue}.png`, {type: "image/png"});
+    if (navigator.canShare && navigator.canShare({files: [f]})) {
+      try { await navigator.share({files: [f], title: g.name}); return; } catch(e) { if (e.name === "AbortError") return; }
+    }
+    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = f.name;
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 3000); toast("图片已下载");
+  }, "image/png");
+}
 let current = "";
 function openMenu(code){ current = code || ""; $("#menu").classList.add("open"); }
 $("#menu").addEventListener("click", e => { if (e.target.id === "menu" || e.target.dataset.act === "close")
   $("#menu").classList.remove("open"); });
-document.querySelectorAll(".share").forEach(b => b.onclick = () => openMenu(b.dataset.game));
+document.querySelectorAll("[data-game]").forEach(b => b.onclick = () => openMenu(b.dataset.game));
+document.querySelectorAll("[data-img]").forEach(b => b.onclick = () => shareImage(b.dataset.img));
 $("#shareTop").onclick = () => openMenu("");
 document.querySelectorAll("#menu button").forEach(b => b.onclick = async () => {
   const act = b.dataset.act, url = SITE + (current ? "#" + current : ""), text = shareText(current || "ssq");
-  if (act === "copyText") copy(text);
+  if (act === "image") shareImage(current || "ssq");
+  else if (act === "copyText") copy(text);
   else if (act === "copyLink") copy(url);
   else if (act === "weibo") open("https://service.weibo.com/share/share.php?title=" + encodeURIComponent(text), "_blank");
   else if (act === "x") open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text), "_blank");
