@@ -185,12 +185,7 @@ footer a{color:var(--blue);text-decoration:none}
 #imgModal .x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:18px;color:#9ca3af;cursor:pointer}
 #imgModal .x:hover{color:#1f2329}
 #imgPreview{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
-#imgModal .siteinfo{margin:12px 0 4px;font-size:13px;color:var(--sub);line-height:1.5}
-#imgModal .siteinfo b{color:var(--ink);font-size:14px}
-#imgModal .siteinfo .url{color:var(--blue);font-size:12px;word-break:break-all}
-#qr{width:130px;height:130px;margin:8px auto 2px;display:block;border-radius:8px}
-#imgModal .qrtext{font-size:11.5px;color:var(--sub);margin-bottom:12px}
-#imgModal .row{display:flex;gap:8px;margin-top:8px}
+#imgModal .row{display:flex;gap:8px;margin-top:12px}
 #imgModal .row .share{flex:1;padding:9px 0;font-size:13.5px}
 #menu{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:98}
 #menu.open{display:flex}
@@ -219,10 +214,6 @@ footer a{color:var(--blue);text-decoration:none}
 <div id="imgModal"><div class="box">
   <button class="x" id="imgClose" title="关闭">✕</button>
   <img id="imgPreview" alt="开奖分享图">
-  <div class="siteinfo"><b>中国彩票开奖数据</b><br>
-    <span class="url" id="siteUrl"></span><br>扫码查看全部彩种</div>
-  <img id="qr" alt="站点二维码" onerror="this.style.display='none'">
-  <div class="qrtext">微信/相机扫码访问</div>
   <div class="row">
     <button class="share" id="imgDl">⬇ 下载图片</button>
     <button class="share" id="imgShare">↗ 分享图片</button>
@@ -269,6 +260,12 @@ function digitBox(x, a, y, n){ rr(x, a, y-26, 34, 40, 6); x.fillStyle = "#fff"; 
   x.fillStyle = "#d92b2b"; x.fillRect(a, y+8, 34, 3);
   x.fillStyle = "#1f2329"; x.font = "bold 20px sans-serif"; x.textAlign = "center";
   x.textBaseline = "middle"; x.fillText(n, a+17, y-6); x.textAlign = "left"; x.textBaseline = "alphabetic"; }
+function loadQR(url){ return new Promise(res => {
+  const im = new Image(); im.crossOrigin = "anonymous";
+  im.onload = () => res(im); im.onerror = () => res(null);
+  im.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data="
+    + encodeURIComponent(url);
+});}
 async function shareImage(code){
   const g = DATA.games[code] || DATA.games.ssq, r = g.latest;
   const W = 880, P = 40;
@@ -277,7 +274,8 @@ async function shareImage(code){
   const rows = Math.ceil(allNums.length / (useBalls ? 11 : 16));
   const prizes = r.prizes || [];
   const metaH = (r.sales || r.pool) ? 40 : 0;
-  const H = P*2 + 96 + rows*60 + metaH + (prizes.length ? 52 + prizes.length*38 : 0) + 64;
+  const qr = await loadQR(SITE + "#" + code);
+  const H = P*2 + 96 + rows*60 + metaH + (prizes.length ? 52 + prizes.length*38 : 0) + (qr ? 118 : 56);
   const c = document.createElement("canvas"); c.width = W*2; c.height = H*2;
   const x = c.getContext("2d"); x.scale(2, 2);
   x.fillStyle = "#eef1f6"; x.fillRect(0, 0, W, H);
@@ -323,14 +321,21 @@ async function shareImage(code){
       x.textAlign = "right"; x.fillText(fmt(p.money), W/2+120, y); x.fillText(fmt(p.count), W-P-26, y);
       x.textAlign = "left"; y += 38; });
   }
-  x.fillStyle = "#9ca3af"; x.font = "13px sans-serif"; y = H - P + 8;
-  x.fillText(SITE.replace("https://","") + " · 每日自动更新 · 仅供研究", P+26, y);
-  // 填充弹层：预览图 + 站点信息 + 二维码
+  // 底部：左侧站点信息，右侧二维码（画进图里）
+  if (qr) {
+    const qs = 92, qy = H - P - qs + 6;
+    x.drawImage(qr, W - P - 26 - qs, qy, qs, qs);
+    x.fillStyle = "#1f2329"; x.font = "bold 15px sans-serif";
+    x.fillText("中国彩票开奖数据", P + 26, qy + 30);
+    x.fillStyle = "#1f6feb"; x.font = "13px sans-serif";
+    x.fillText(SITE.replace("https://", ""), P + 26, qy + 54);
+    x.fillStyle = "#9ca3af"; x.font = "12px sans-serif";
+    x.fillText("扫码查看全部彩种 · 每日自动更新 · 仅供研究", P + 26, qy + 76);
+  } else {
+    x.fillStyle = "#9ca3af"; x.font = "13px sans-serif";
+    x.fillText(SITE.replace("https://", "") + " · 每日自动更新 · 仅供研究", P + 26, H - P + 8);
+  }
   $("#imgPreview").src = c.toDataURL("image/png");
-  $("#siteUrl").textContent = SITE.replace("https://","");
-  $("#qr").style.display = "";
-  $("#qr").src = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=4&data="
-    + encodeURIComponent(SITE + "#" + code);
   $("#imgModal").classList.add("open");
   c.toBlob(b => { imgFile = new File([b], `${code}-${r.issue}.png`, {type: "image/png"}); }, "image/png");
 }
