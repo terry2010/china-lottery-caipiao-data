@@ -54,7 +54,7 @@ footer a{color:var(--blue);text-decoration:none}
 #toast.show{opacity:.95}
 #imgModal{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
 #imgModal.open{display:flex}
-#imgModal .box{background:#fff;border-radius:16px;padding:16px;max-width:400px;width:100%;max-height:92vh;overflow-y:auto;text-align:center;position:relative}
+#imgModal .box{background:#fff;border-radius:16px;padding:18px;max-width:620px;width:100%;max-height:92vh;overflow-y:auto;text-align:center;position:relative}
 #imgModal .x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:18px;color:#9ca3af;cursor:pointer}
 #imgModal .x:hover{color:#1f2329}
 #imgPreview{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
@@ -74,7 +74,7 @@ footer a{color:var(--blue);text-decoration:none}
   <button class="btn" id="shareTop">↗ 分享</button>
 </div></header>
 <div class="wrap">
-  <p class="updated">更新于 <b id="updated">2026-11-23 01:26</b>（北京时间） · 数据源 500.com ·
+  <p class="updated">更新于 <b id="updated">2026-11-23 01:28</b>（北京时间） · 数据源 500.com ·
     <a href="https://github.com/terry2010/china-lottery-caipiao-data" style="color:var(--blue)" target="_blank" rel="noopener">GitHub 项目 ↗</a></p>
   <div class="notice">数据仅供研究学习，不构成购彩建议。开奖结果随机，历史数据无法预测未来。</div>
   <div class="grid">
@@ -301,7 +301,7 @@ async function shareImage(code){
   const prizes = r.prizes || [];
   const metaH = (r.sales || r.pool) ? 40 : 0;
   const qr = await loadQR(SITE + "#" + code);
-  const H = P*2 + 96 + rows*60 + metaH + (prizes.length ? 52 + prizes.length*38 : 0) + (qr ? 118 : 56);
+  const H = P*2 + 96 + rows*60 + metaH + (prizes.length ? 52 + prizes.length*38 : 0) + (qr ? 160 : 56);
   const c = document.createElement("canvas"); c.width = W*2; c.height = H*2;
   const x = c.getContext("2d"); x.scale(2, 2);
   x.fillStyle = "#eef1f6"; x.fillRect(0, 0, W, H);
@@ -349,14 +349,17 @@ async function shareImage(code){
   }
   // 底部：左侧站点信息，右侧二维码（画进图里）
   if (qr) {
-    const qs = 92, qy = H - P - qs + 6;
+    const qs = 130, qy = H - P - qs - 10;
+    rr(x, W - P - 26 - qs - 10, qy - 10, qs + 20, qs + 20, 10);
+    x.fillStyle = "#fff"; x.fill(); x.strokeStyle = "#e5e7eb"; x.stroke();
     x.drawImage(qr, W - P - 26 - qs, qy, qs, qs);
-    x.fillStyle = "#1f2329"; x.font = "bold 15px sans-serif";
-    x.fillText("中国彩票开奖数据", P + 26, qy + 30);
-    x.fillStyle = "#1f6feb"; x.font = "13px sans-serif";
-    x.fillText(SITE.replace("https://", ""), P + 26, qy + 54);
-    x.fillStyle = "#9ca3af"; x.font = "12px sans-serif";
-    x.fillText("扫码查看全部彩种 · 每日自动更新 · 仅供研究", P + 26, qy + 76);
+    x.fillStyle = "#1f2329"; x.font = "bold 18px sans-serif";
+    x.fillText("中国彩票开奖数据", P + 26, qy + 42);
+    x.fillStyle = "#1f6feb"; x.font = "15px sans-serif";
+    x.fillText(SITE.replace("https://", ""), P + 26, qy + 74);
+    x.fillStyle = "#9ca3af"; x.font = "13px sans-serif";
+    x.fillText("扫码查看全部彩种", P + 26, qy + 104);
+    x.fillText("每日自动更新 · 仅供研究", P + 26, qy + 126);
   } else {
     x.fillStyle = "#9ca3af"; x.font = "13px sans-serif";
     x.fillText(SITE.replace("https://", "") + " · 每日自动更新 · 仅供研究", P + 26, H - P + 8);
