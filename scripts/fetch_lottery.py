@@ -21,9 +21,9 @@ import argparse
 import json
 import os
 import re
-import sys
 import time
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 
 import requests
@@ -198,21 +198,25 @@ def update_one(code: str, details: int, full: bool):
         need = [r for r in need if int(r["issue"]) >= int(ordered[-min(details, len(ordered))]["issue"])]
     print(f"  新增 {new_count} 期；需补详情 {len(need)} 期")
 
-    ok, fail = 0, 0
-    for r in need:
+    def job(r):
         expect = (r["issue"][-5:]
                   if cfg.get("full_issue") and len(r["issue"]) == 7 else r["issue"])
-        try:
-            d = fetch_detail(code, expect)
-        except Exception as e:
-            print(f"    详情失败 {r['issue']}: {e}")
-            fail += 1
-            continue
-        r.update(d)
-        ok += 1
-        if ok % 50 == 0:
-            print(f"    详情进度 {ok}/{len(need)}")
-        time.sleep(0.15)
+        return r["issue"], fetch_detail(code, expect)
+
+    ok, fail = 0, 0
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        futures = {ex.submit(job, r): r for r in need}
+        for i, fut in enumerate(as_completed(futures), 1):
+            r = futures[fut]
+            try:
+                _, d = fut.result()
+                r.update(d)
+                ok += 1
+            except Exception as e:
+                print(f"    详情失败 {r['issue']}: {e}")
+                fail += 1
+            if i % 50 == 0:
+                print(f"    详情进度 {i}/{len(need)}")
 
     if fail and ok == 0:
         print("  详情全部失败，跳过写盘")
