@@ -179,6 +179,19 @@ footer{color:var(--sub);font-size:12.5px;margin:22px 0 30px;line-height:1.9}
 footer a{color:var(--blue);text-decoration:none}
 #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:#111827;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
 #toast.show{opacity:.95}
+#imgModal{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+#imgModal.open{display:flex}
+#imgModal .box{background:#fff;border-radius:16px;padding:16px;max-width:400px;width:100%;max-height:92vh;overflow-y:auto;text-align:center;position:relative}
+#imgModal .x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:18px;color:#9ca3af;cursor:pointer}
+#imgModal .x:hover{color:#1f2329}
+#imgPreview{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+#imgModal .siteinfo{margin:12px 0 4px;font-size:13px;color:var(--sub);line-height:1.5}
+#imgModal .siteinfo b{color:var(--ink);font-size:14px}
+#imgModal .siteinfo .url{color:var(--blue);font-size:12px;word-break:break-all}
+#qr{width:130px;height:130px;margin:8px auto 2px;display:block;border-radius:8px}
+#imgModal .qrtext{font-size:11.5px;color:var(--sub);margin-bottom:12px}
+#imgModal .row{display:flex;gap:8px;margin-top:8px}
+#imgModal .row .share{flex:1;padding:9px 0;font-size:13.5px}
 #menu{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:98}
 #menu.open{display:flex}
 #menu .sheet{background:#fff;width:100%;max-width:480px;border-radius:14px 14px 0 0;padding:14px 16px 26px}
@@ -203,6 +216,18 @@ footer a{color:var(--blue);text-decoration:none}
   </footer>
 </div>
 <div id="toast"></div>
+<div id="imgModal"><div class="box">
+  <button class="x" id="imgClose" title="关闭">✕</button>
+  <img id="imgPreview" alt="开奖分享图">
+  <div class="siteinfo"><b>中国彩票开奖数据</b><br>
+    <span class="url" id="siteUrl"></span><br>扫码查看全部彩种</div>
+  <img id="qr" alt="站点二维码" onerror="this.style.display='none'">
+  <div class="qrtext">微信/相机扫码访问</div>
+  <div class="row">
+    <button class="share" id="imgDl">⬇ 下载图片</button>
+    <button class="share" id="imgShare">↗ 分享图片</button>
+  </div>
+</div></div>
 <div id="menu"><div class="sheet">
   <button data-act="image">🖼 生成分享图片</button>
   <button data-act="copyText">📋 复制开奖结果文本</button>
@@ -300,15 +325,27 @@ async function shareImage(code){
   }
   x.fillStyle = "#9ca3af"; x.font = "13px sans-serif"; y = H - P + 8;
   x.fillText(SITE.replace("https://","") + " · 每日自动更新 · 仅供研究", P+26, y);
-  c.toBlob(async b => {
-    const f = new File([b], `${code}-${r.issue}.png`, {type: "image/png"});
-    if (navigator.canShare && navigator.canShare({files: [f]})) {
-      try { await navigator.share({files: [f], title: g.name}); return; } catch(e) { if (e.name === "AbortError") return; }
-    }
-    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = f.name;
-    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 3000); toast("图片已下载");
-  }, "image/png");
+  // 填充弹层：预览图 + 站点信息 + 二维码
+  $("#imgPreview").src = c.toDataURL("image/png");
+  $("#siteUrl").textContent = SITE.replace("https://","");
+  $("#qr").style.display = "";
+  $("#qr").src = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=4&data="
+    + encodeURIComponent(SITE + "#" + code);
+  $("#imgModal").classList.add("open");
+  c.toBlob(b => { imgFile = new File([b], `${code}-${r.issue}.png`, {type: "image/png"}); }, "image/png");
 }
+let imgFile = null;
+$("#imgClose").onclick = () => $("#imgModal").classList.remove("open");
+$("#imgModal").addEventListener("click", e => { if (e.target.id === "imgModal") e.target.classList.remove("open"); });
+$("#imgDl").onclick = () => { if (!imgFile) return;
+  const a = document.createElement("a"); a.href = URL.createObjectURL(imgFile); a.download = imgFile.name;
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 3000); toast("图片已下载"); };
+$("#imgShare").onclick = async () => { if (!imgFile) return;
+  if (navigator.canShare && navigator.canShare({files: [imgFile]})) {
+    try { await navigator.share({files: [imgFile]}); return; } catch(e) { if (e.name === "AbortError") return; }
+  }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(imgFile); a.download = imgFile.name;
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 3000); toast("已下载，可粘贴分享"); };
 let current = "";
 function openMenu(code){ current = code || ""; $("#menu").classList.add("open"); }
 $("#menu").addEventListener("click", e => { if (e.target.id === "menu" || e.target.dataset.act === "close")
