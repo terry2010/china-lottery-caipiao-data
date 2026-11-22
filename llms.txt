@@ -1,0 +1,46 @@
+# china-lottery-caipiao-data
+
+> 中国全部 11 种彩票的开奖历史数据集，每日由 GitHub Actions 自动更新。
+> Daily-updated dataset of all 11 Chinese lottery games: draw numbers, prize
+> tiers (winning counts & per-tier prize money), sales amount and pool.
+> All data is free JSON, no API key required.
+
+## Quick start
+
+- Latest draw of every game (one request):
+  https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/latest.json
+- Machine-readable catalog of all data files:
+  https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/index.json
+- Human-readable latest-draw dashboard:
+  https://github.com/terry2010/china-lottery-caipiao-data/blob/main/DASHBOARD.md
+
+## Data files
+
+- Full history per game: `https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/{code}.json`
+- Codes: ssq 双色球 | dlt 超级大乐透 | sd 福彩3D | pls 排列3 | plw 排列5 |
+  qlc 七乐彩 | kl8 快乐8 | qxc 七星彩 | sfc 胜负彩14场 | jq4 四场进球 | zc6 六场半全场
+
+## Record format
+
+```json
+{
+  "issue": "2026134",
+  "date": "2026-11-22",
+  "front": ["04","05","10","17","21","32"],   // split games use front/back
+  "back": ["08"],                            // other games use "numbers": [...]
+  "sales": 435713586,                        // 销售额(元)
+  "pool": 1154982023,                        // 奖池滚存(元)
+  "prizes": [{"level": 1, "money": 6115183, "count": 13}]
+}
+```
+
+## Known gaps
+
+- kl8 (快乐8): sales & pool only, no per-tier prize data in source
+- sd (福彩3D): prize counts empty for issues ~2022+; sales always present
+- 购买人数 (buyer count) is never published by any Chinese lottery source
+
+## Source & license
+
+- Upstream: 500.com public XML feeds (official APIs geo-block foreign IPs)
+- MIT license. For research/education only; not betting advice.

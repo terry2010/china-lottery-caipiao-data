@@ -1,0 +1,129 @@
+{
+ "name": "china-lottery-caipiao-data",
+ "description": "Chinese lottery draw history: numbers, prize tiers, sales, pool. JSON, daily-updated.",
+ "updated_at": "2026-11-23 01:01:22",
+ "latest_url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/latest.json",
+ "types": [
+  {
+   "code": "ssq",
+   "name": "双色球",
+   "file": "data/ssq.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json",
+   "draws": 3531,
+   "first_issue": "2003001",
+   "first_date": "2003-02-23",
+   "latest_issue": "2026134",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "dlt",
+   "name": "超级大乐透",
+   "file": "data/dlt.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/dlt.json",
+   "draws": 2951,
+   "first_issue": "07001",
+   "first_date": "2007-05-30",
+   "latest_issue": "26133",
+   "latest_date": "2026-11-21"
+  },
+  {
+   "code": "sd",
+   "name": "福彩3D",
+   "file": "data/sd.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/sd.json",
+   "draws": 7819,
+   "first_issue": "2004001",
+   "first_date": "2004-10-18",
+   "latest_issue": "2026312",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "pls",
+   "name": "排列3",
+   "file": "data/pls.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/pls.json",
+   "draws": 7787,
+   "first_issue": "04001",
+   "first_date": "2004-11-14",
+   "latest_issue": "26312",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "plw",
+   "name": "排列5",
+   "file": "data/plw.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/plw.json",
+   "draws": 7785,
+   "first_issue": "04001",
+   "first_date": "2004-11-14",
+   "latest_issue": "26312",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "qlc",
+   "name": "七乐彩",
+   "file": "data/qlc.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/qlc.json",
+   "draws": 3014,
+   "first_issue": "2007001",
+   "first_date": "2007-01-03",
+   "latest_issue": "2026134",
+   "latest_date": "2026-11-20"
+  },
+  {
+   "code": "kl8",
+   "name": "快乐8",
+   "file": "data/kl8.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/kl8.json",
+   "draws": 1756,
+   "first_issue": "2021313",
+   "first_date": "2021-11-23",
+   "latest_issue": "2026312",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "qxc",
+   "name": "七星彩",
+   "file": "data/qxc.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/qxc.json",
+   "draws": 3418,
+   "first_issue": "04101",
+   "first_date": "2004-05-21",
+   "latest_issue": "26134",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "sfc",
+   "name": "胜负彩14场",
+   "file": "data/sfc.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/sfc.json",
+   "draws": 3367,
+   "first_issue": "04028",
+   "first_date": "2004-09-13",
+   "latest_issue": "26167",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "jq4",
+   "name": "四场进球",
+   "file": "data/jq4.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/jq4.json",
+   "draws": 3830,
+   "first_issue": "06001",
+   "first_date": "2006-06-21",
+   "latest_issue": "26241",
+   "latest_date": "2026-11-22"
+  },
+  {
+   "code": "zc6",
+   "name": "六场半全场",
+   "file": "data/zc6.json",
+   "url": "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/zc6.json",
+   "draws": 3639,
+   "first_issue": "06001",
+   "first_date": "2006-06-14",
+   "latest_issue": "26234",
+   "latest_date": "2026-11-22"
+  }
+ ]
+}

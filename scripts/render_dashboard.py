@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-生成 DASHBOARD.md —— 各彩种最新一期开奖数据速览，方便排查数据问题。
+生成项目衍生物：
+  - DASHBOARD.md  各彩种最新一期开奖数据速览，方便排查数据问题
+  - latest.json   各彩种最新一期记录汇总（LLM/调用方一次请求拿全）
+  - index.json    数据清单：每彩种的文件、期数、最新期号、raw 下载地址
 
 用法: python scripts/render_dashboard.py
 """
@@ -12,6 +15,7 @@ from datetime import datetime, timezone, timedelta
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(REPO_ROOT, "data")
 OUTPUT = os.path.join(REPO_ROOT, "DASHBOARD.md")
+RAW_BASE = "https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main"
 
 CST = timezone(timedelta(hours=8))
 
@@ -114,11 +118,54 @@ def render() -> str:
     return "\n".join(lines) + "\n\n" + "\n\n".join(sections) + "\n"
 
 
+def render_latest() -> dict:
+    """各彩种最新一期记录汇总"""
+    out = {"updated_at": datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")}
+    for code in ORDER:
+        data = (load(code).get("data") or [])
+        if data:
+            out[code] = data[-1]
+    return out
+
+
+def render_index() -> dict:
+    """数据清单：给搜索引擎 / LLM / 调用方的机器可读索引"""
+    types = []
+    for code in ORDER:
+        payload = load(code)
+        data = payload.get("data") or []
+        if not data:
+            continue
+        types.append({
+            "code": code,
+            "name": payload.get("game"),
+            "file": f"data/{code}.json",
+            "url": f"{RAW_BASE}/data/{code}.json",
+            "draws": len(data),
+            "first_issue": data[0]["issue"],
+            "first_date": data[0]["date"],
+            "latest_issue": data[-1]["issue"],
+            "latest_date": data[-1]["date"],
+        })
+    return {
+        "name": "china-lottery-caipiao-data",
+        "description": "Chinese lottery draw history: numbers, prize tiers, sales, pool. JSON, daily-updated.",
+        "updated_at": datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S"),
+        "latest_url": f"{RAW_BASE}/latest.json",
+        "types": types,
+    }
+
+
 def main():
     text = render()
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(text)
     print(f"written: {OUTPUT}")
+    for name, payload in (("latest.json", render_latest()), ("index.json", render_index())):
+        p = os.path.join(REPO_ROOT, name)
+        with open(p, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=1)
+        print(f"written: {p}")
 
 
 if __name__ == "__main__":

@@ -1,75 +1,91 @@
 # china-lottery-caipiao-data
 
-中国彩票开奖数据自动采集仓库 · Daily-updated draw history for all Chinese lotteries — draw numbers, prize tiers (中奖注数/单注奖金), sales (销售额) and pool (奖池滚存), stored as JSON and updated daily by GitHub Actions.
+[![update-lottery-data](https://github.com/terry2010/china-lottery-caipiao-data/actions/workflows/update.yml/badge.svg)](https://github.com/terry2010/china-lottery-caipiao-data/actions/workflows/update.yml)
+[![last commit](https://img.shields.io/github/last-commit/terry2010/china-lottery-caipiao-data)](https://github.com/terry2010/china-lottery-caipiao-data/commits)
+[![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## 数据面板
+中国**全部 11 种彩票**的开奖历史数据集：开奖号码 + **各奖级中奖注数 + 单注奖金 + 销售额 + 奖池滚存**，JSON 格式，GitHub Actions 每日自动更新。
+
+Daily-updated dataset of all 11 Chinese lottery games — draw numbers, **prize-tier winning counts, per-tier prize money, total sales and pool rollover** — as free JSON, updated daily by GitHub Actions. No API key, no auth.
+
+## 数据面板 / Dashboard
 
 👉 **[DASHBOARD.md](DASHBOARD.md)** — 各彩种最新一期开奖数据速览
 
-## 覆盖彩种
+## 快速使用 / Quick start
 
-| 代码 | 彩种 | 开奖日 | 数据文件 |
-|---|---|---|---|
-| `ssq` | 双色球 | 周二/四/日 | `data/ssq.json` |
-| `dlt` | 超级大乐透 | 周一/三/六 | `data/dlt.json` |
-| `sd` | 福彩3D | 每日 | `data/sd.json` |
-| `pls` | 排列3 | 每日 | `data/pls.json` |
-| `plw` | 排列5 | 每日 | `data/plw.json` |
-| `qlc` | 七乐彩 | 周一/三/五 | `data/qlc.json` |
-| `kl8` | 快乐8 | 每日 | `data/kl8.json` |
-| `qxc` | 七星彩 | 周二/五/日 | `data/qxc.json` |
-| `sfc` | 胜负彩14场 | 赛期制 | `data/sfc.json` |
-| `jq4` | 四场进球 | 赛期制 | `data/jq4.json` |
-| `zc6` | 六场半全场 | 赛期制 | `data/zc6.json` |
+```bash
+# 所有彩种最新一期（一次请求）
+curl https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/latest.json
 
-## 数据格式
+# 双色球完整历史
+curl https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json
+
+# 数据清单（机器可读索引，含每期数/最新期号/下载地址）
+curl https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/index.json
+```
+
+```python
+import pandas as pd, requests
+d = requests.get("https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json").json()
+df = pd.DataFrame(d["data"])   # 3531 行：issue, date, front, back, prizes, sales, pool
+```
+
+## 覆盖彩种 / Coverage
+
+| 代码 | 彩种 | Game | 起始 | 开奖日 | 文件 |
+|---|---|---|---|---|---|
+| `ssq` | 双色球 | Union Lotto | 2003 | 周二/四/日 | `data/ssq.json` |
+| `dlt` | 超级大乐透 | Super Lotto | 2007 | 周一/三/六 | `data/dlt.json` |
+| `sd` | 福彩3D | Welfare 3D | 2004 | 每日 | `data/sd.json` |
+| `pls` | 排列3 | Arrangement 3 | 2004 | 每日 | `data/pls.json` |
+| `plw` | 排列5 | Arrangement 5 | 2004 | 每日 | `data/plw.json` |
+| `qlc` | 七乐彩 | Seven Lottery | 2007 | 周一/三/五 | `data/qlc.json` |
+| `kl8` | 快乐8 | Happy 8 | 2021 | 每日 | `data/kl8.json` |
+| `qxc` | 七星彩 | Seven Stars | 2004 | 周二/五/日 | `data/qxc.json` |
+| `sfc` | 胜负彩14场 | Football 14 | 2004 | 赛期制 | `data/sfc.json` |
+| `jq4` | 四场进球 | 4-Game Goals | 2006 | 赛期制 | `data/jq4.json` |
+| `zc6` | 六场半全场 | 6-Game HT/FT | 2006 | 赛期制 | `data/zc6.json` |
+
+## 数据格式 / Schema
 
 ```json
 {
-  "game": "双色球",
-  "code": "ssq",
-  "updated_at": "2026-11-22 23:00:00",
-  "data": [
-    {
-      "issue": "2026134",
-      "date": "2026-11-22",
-      "front": ["04", "05", "10", "17", "21", "32"],
-      "back": ["08"],
-      "sales": 435713586,
-      "pool": 1154982023,
-      "prizes": [
-        {"level": 1, "money": 6115183, "count": 13},
-        {"level": 2, "money": 102382, "count": 177}
-      ]
-    }
-  ]
+  "game": "双色球", "code": "ssq", "updated_at": "2026-11-22 23:00:00",
+  "data": [{
+    "issue": "2026134", "date": "2026-11-22",
+    "front": ["04","05","10","17","21","32"], "back": ["08"],
+    "sales": 435713586, "pool": 1154982023,
+    "prizes": [{"level": 1, "money": 6115183, "count": 13}]
+  }]
 }
 ```
 
-- `front`/`back`：前后区彩种（双色球、大乐透、七乐彩）；其他彩种用 `numbers`
-- `prizes[].level`：奖级序号（1=一等奖），`money` 单注奖金（元），`count` 中奖注数
-- `sales` 本期销售额（元），`pool` 奖池滚存（元）
-- 已知限制：快乐8 无分奖级注数；福彩3D/排列3 的注数字段源站常为空；排列5 奖池在 `pool`（取自源 AddCCMoney 字段）
+- `front`/`back`：前后区彩种；其他彩种为 `numbers` 数组
+- `prizes[].level` 1=一等奖，`money` 单注奖金（元），`count` 中奖注数
+- `sales` 本期销售额（元）；`pool` 奖池滚存（元）
 
-## 直接使用
+## FAQ
 
-```
-https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json
-```
+**Q: 有中奖人数/购买人数数据吗？**
+A: 中国彩票官方从不公布购买人数。最接近的指标是 `sales`（销售额）和 `prizes[].count`（各奖级中奖注数）。
 
-## 本地运行
+**Q: 福彩3D 的中奖注数为什么是 0？**
+A: 上游源约 2022 年起不再更新 3D 注数字段；之前年份正常。销售额全期可用。
 
-```bash
-pip install -r requirements.txt
-python scripts/fetch_lottery.py            # 增量更新
-python scripts/fetch_lottery.py --full     # 回补全部历史详情（慢）
-python scripts/render_dashboard.py         # 生成 DASHBOARD.md
-```
+**Q: 快乐8 没有分奖级数据？**
+A: 上游仅提供快乐8 的销量与奖池，无分奖级注数。
+
+**Q: 更新频率？**
+A: 每日 22:40（北京时间）由 GitHub Actions 抓取，开奖日 21:15–21:30 开奖后更新。
+
+**Q: 如何回补全量历史详情？**
+A: Actions → `update-lottery-data` → Run workflow → 勾 `backfill`，可断点续跑。
 
 ## 数据来源与免责声明
 
-- 数据源：[500彩票网](https://www.500.com) 公开开奖接口（官方接口 `cwl.gov.cn` / `webapi.sporttery.cn` 对境外 IP 均有限制，GitHub Actions 不可用）
-- 本项目仅聚合公开数据用于学习研究，不构成任何购彩建议；彩票开奖结果随机，历史数据无法预测未来
+- 源：[500彩票网](https://www.500.com) 公开开奖 XML（官方 `cwl.gov.cn` / `webapi.sporttery.cn` 对境外 IP 不可用）
+- 仅聚合公开数据用于学习研究，不构成购彩建议；开奖结果随机，历史数据无法预测未来
 
 ## License
 
