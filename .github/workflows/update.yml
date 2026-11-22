@@ -52,12 +52,14 @@ jobs:
             git push || true
           done
 
-      - name: Render dashboard
-        run: python scripts/render_dashboard.py
+      - name: Render dashboard + site
+        run: |
+          python scripts/render_dashboard.py
+          python scripts/render_site.py
 
       - name: Commit dashboard
         run: |
-          git add DASHBOARD.md latest.json index.json
+          git add DASHBOARD.md latest.json index.json docs/
           if git diff --cached --quiet; then
             echo "no changes"
           else

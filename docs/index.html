@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国彩票开奖数据 · 每日自动更新 | china-lottery-caipiao-data</title>
+<meta name="description" content="中国全部11种彩票开奖历史数据：双色球、大乐透、福彩3D、排列3/5、七乐彩、快乐8、七星彩、胜负彩、四场进球、六场半全场。含中奖注数、单注奖金、销售额、奖池。JSON免费下载，每日自动更新。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="中国彩票开奖数据 · 最新一期速览">
+<meta property="og:description" content="11种彩票开奖号码+中奖注数+奖金+销量+奖池，JSON数据集每日自动更新">
+<meta property="og:url" content="https://terry2010.github.io/china-lottery-caipiao-data/">
+<meta property="og:image" content="https://opengraph.githubassets.com/1/terry2010/china-lottery-caipiao-data">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1f2329;--sub:#6b7280;--red:#d92b2b;--blue:#1f6feb;--line:#e5e7eb}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:16px}
+header.top{position:sticky;top:0;background:#fffffff2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:9}
+header.top .wrap{display:flex;align-items:center;gap:10px;padding-top:10px;padding-bottom:10px}
+h1{font-size:19px;flex:1}
+h1 small{color:var(--sub);font-weight:400;font-size:13px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink)}
+.btn:hover{background:#f0f2f5}
+.updated{color:var(--sub);font-size:12.5px;margin:10px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card:target{border-color:var(--blue);box-shadow:0 0 0 2px #1f6feb22}
+.card header{display:flex;align-items:center;justify-content:space-between}
+.card h2{font-size:17px}
+.card h2 .code{color:var(--sub);font-size:11px;font-weight:400;margin-left:6px;background:#f0f2f5;padding:1px 6px;border-radius:6px}
+.share{border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:8px;padding:4px 10px;font-size:12.5px;cursor:pointer}
+.share:hover{background:#1f6feb;color:#fff}
+.issue{color:var(--sub);font-size:13px;margin:6px 0 8px}
+.nums{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 8px}
+.ball{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.ball.red{background:radial-gradient(circle at 30% 30%,#f66,var(--red))}
+.ball.blue{background:radial-gradient(circle at 30% 30%,#6ea8ff,var(--blue))}
+.sep{width:8px}
+.digit{width:26px;height:32px;border:1px solid var(--line);border-bottom:3px solid var(--red);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;background:#fff}
+.chips .chip{border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-weight:700;background:#fff}
+.meta{font-size:13px;color:var(--sub);margin:6px 0}
+.prize{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.prize th{text-align:left;color:var(--sub);font-weight:400;border-bottom:1px solid var(--line);padding:4px 2px}
+.prize td{border-bottom:1px solid #f2f3f5;padding:4px 2px}
+.prize .r{text-align:right}
+.card .foot{margin-top:10px;font-size:12px;color:var(--sub)}
+.card .foot a{color:var(--blue);text-decoration:none}
+.notice{background:#fffbe8;border:1px solid #f0e0a8;border-radius:10px;padding:10px 14px;font-size:13px;color:#7a6514;margin-bottom:14px}
+footer{color:var(--sub);font-size:12.5px;margin:22px 0 30px;line-height:1.9}
+footer a{color:var(--blue);text-decoration:none}
+#toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:#111827;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+#toast.show{opacity:.95}
+#menu{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:98}
+#menu.open{display:flex}
+#menu .sheet{background:#fff;width:100%;max-width:480px;border-radius:14px 14px 0 0;padding:14px 16px 26px}
+#menu .sheet button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #f2f3f5;padding:13px 4px;font-size:15px;cursor:pointer}
+#menu .sheet button:last-child{border-bottom:0}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1>中国彩票开奖数据 <small>每日自动更新</small></h1>
+  <a class="btn" href="https://github.com/terry2010/china-lottery-caipiao-data" target="_blank" rel="noopener">GitHub ↗</a>
+  <button class="btn" id="shareTop">↗ 分享</button>
+</div></header>
+<div class="wrap">
+  <p class="updated">更新于 <b id="updated">2026-11-23 01:03</b>（北京时间） · 数据源 500.com ·
+    <a href="index.json" style="color:var(--blue)">index.json</a> ·
+    <a href="latest.json" style="color:var(--blue)">latest.json</a></p>
+  <div class="notice">数据仅供研究学习，不构成购彩建议。开奖结果随机，历史数据无法预测未来。</div>
+  <div class="grid">
+<section class="card" id="ssq">
+  <header>
+    <h2>双色球<span class="code">ssq</span></h2>
+    <button class="share" data-game="ssq" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>2026134</b> 期 · 2026-11-22 · 周二/四/日</div>
+  <div class="nums"><span class="ball red">04</span><span class="ball red">05</span><span class="ball red">10</span><span class="ball red">17</span><span class="ball red">21</span><span class="ball red">32</span><span class="sep"></span><span class="ball blue">08</span></div>
+  <div class="meta">销售额 <b>435,713,586</b> 元 · 奖池 <b>1,154,982,023</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>6,115,183</td><td class='r'>13</td></tr><tr><td>二等奖</td><td class='r'>102,382</td><td class='r'>177</td></tr><tr><td>三等奖</td><td class='r'>3,000</td><td class='r'>2,583</td></tr><tr><td>四等奖</td><td class='r'>200</td><td class='r'>108,192</td></tr><tr><td>五等奖</td><td class='r'>10</td><td class='r'>1,815,077</td></tr><tr><td>六等奖</td><td class='r'>5</td><td class='r'>18,694,906</td></tr></tbody></table>
+  <div class="foot">共 3531 期 · 详情覆盖 90/3531 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="dlt">
+  <header>
+    <h2>超级大乐透<span class="code">dlt</span></h2>
+    <button class="share" data-game="dlt" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26133</b> 期 · 2026-11-21 · 周一/三/六</div>
+  <div class="nums"><span class="ball red">10</span><span class="ball red">11</span><span class="ball red">25</span><span class="ball red">30</span><span class="ball red">32</span><span class="sep"></span><span class="ball blue">09</span><span class="ball blue">10</span></div>
+  <div class="meta">销售额 <b>343,261,615</b> 元 · 奖池 <b>766,933,719</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>13,261,044</td><td class='r'>7</td></tr><tr><td>二等奖</td><td class='r'>252,738</td><td class='r'>126</td></tr><tr><td>三等奖</td><td class='r'>5,000</td><td class='r'>1,206</td></tr><tr><td>四等奖</td><td class='r'>300</td><td class='r'>22,847</td></tr><tr><td>五等奖</td><td class='r'>150</td><td class='r'>75,885</td></tr><tr><td>六等奖</td><td class='r'>15</td><td class='r'>1,056,336</td></tr></tbody></table>
+  <div class="foot">共 2951 期 · 详情覆盖 90/2951 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/dlt.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="sd">
+  <header>
+    <h2>福彩3D<span class="code">sd</span></h2>
+    <button class="share" data-game="sd" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>2026312</b> 期 · 2026-11-22 · 每日</div>
+  <div class="nums"><span class="digit">4</span><span class="digit">0</span><span class="digit">8</span></div>
+  <div class="meta">销售额 <b>104,983,046</b> 元 · 组选形态 <b>z6</b></div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>直选</td><td class='r'>1,040</td><td class='r'>0</td></tr><tr><td>组选三</td><td class='r'>346</td><td class='r'>0</td></tr><tr><td>组选六</td><td class='r'>173</td><td class='r'>0</td></tr></tbody></table>
+  <div class="foot">共 7819 期 · 详情覆盖 90/7819 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/sd.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="pls">
+  <header>
+    <h2>排列3<span class="code">pls</span></h2>
+    <button class="share" data-game="pls" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26312</b> 期 · 2026-11-22 · 每日</div>
+  <div class="nums"><span class="digit">7</span><span class="digit">7</span><span class="digit">1</span></div>
+  <div class="meta">销售额 <b>40,734,872</b> 元 · 组选形态 <b>z3</b></div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>直选</td><td class='r'>1,040</td><td class='r'>20,772</td></tr><tr><td>组选三</td><td class='r'>346</td><td class='r'>21,705</td></tr><tr><td>组选六</td><td class='r'>173</td><td class='r'>0</td></tr></tbody></table>
+  <div class="foot">共 7787 期 · 详情覆盖 90/7787 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/pls.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="plw">
+  <header>
+    <h2>排列5<span class="code">plw</span></h2>
+    <button class="share" data-game="plw" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26312</b> 期 · 2026-11-22 · 每日</div>
+  <div class="nums"><span class="digit">7</span><span class="digit">7</span><span class="digit">1</span><span class="digit">4</span><span class="digit">4</span></div>
+  <div class="meta">销售额 <b>21,207,616</b> 元 · 奖池 <b>32,365,874</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>100,000</td><td class='r'>165</td></tr></tbody></table>
+  <div class="foot">共 7785 期 · 详情覆盖 90/7785 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/plw.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="qlc">
+  <header>
+    <h2>七乐彩<span class="code">qlc</span></h2>
+    <button class="share" data-game="qlc" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>2026134</b> 期 · 2026-11-20 · 周一/三/五</div>
+  <div class="nums"><span class="ball red">02</span><span class="ball red">05</span><span class="ball red">12</span><span class="ball red">16</span><span class="ball red">24</span><span class="ball red">26</span><span class="ball red">30</span><span class="sep"></span><span class="ball blue">08</span></div>
+  <div class="meta">销售额 <b>4,568,042</b> 元 · 奖池 <b>1,687,619</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>0</td><td class='r'>0</td></tr><tr><td>二等奖</td><td class='r'>25,237</td><td class='r'>6</td></tr><tr><td>三等奖</td><td class='r'>2,610</td><td class='r'>116</td></tr><tr><td>四等奖</td><td class='r'>200</td><td class='r'>566</td></tr><tr><td>五等奖</td><td class='r'>50</td><td class='r'>4,685</td></tr><tr><td>六等奖</td><td class='r'>10</td><td class='r'>9,717</td></tr><tr><td>七等奖</td><td class='r'>5</td><td class='r'>55,900</td></tr></tbody></table>
+  <div class="foot">共 3014 期 · 详情覆盖 90/3014 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/qlc.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="kl8">
+  <header>
+    <h2>快乐8<span class="code">kl8</span></h2>
+    <button class="share" data-game="kl8" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>2026312</b> 期 · 2026-11-22 · 每日</div>
+  <div class="nums"><span class="ball red">06</span><span class="ball red">07</span><span class="ball red">09</span><span class="ball red">11</span><span class="ball red">15</span><span class="ball red">17</span><span class="ball red">19</span><span class="ball red">28</span><span class="ball red">30</span><span class="ball red">31</span><span class="ball red">33</span><span class="ball red">36</span><span class="ball red">42</span><span class="ball red">43</span><span class="ball red">44</span><span class="ball red">51</span><span class="ball red">59</span><span class="ball red">62</span><span class="ball red">63</span><span class="ball red">79</span></div>
+  <div class="meta">销售额 <b>102,327,224</b> 元 · 奖池 <b>87,410,741</b> 元</div>
+  
+  <div class="foot">共 1756 期 · 详情覆盖 90/1756 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/kl8.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="qxc">
+  <header>
+    <h2>七星彩<span class="code">qxc</span></h2>
+    <button class="share" data-game="qxc" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26134</b> 期 · 2026-11-22 · 周二/五/日</div>
+  <div class="nums"><span class="digit">7</span><span class="digit">2</span><span class="digit">4</span><span class="digit">7</span><span class="digit">6</span><span class="digit">3</span><span class="digit">14</span></div>
+  <div class="meta">销售额 <b>13,204,226</b> 元 · 奖池 <b>3,960,337</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>0</td><td class='r'>0</td></tr><tr><td>二等奖</td><td class='r'>39,298</td><td class='r'>11</td></tr><tr><td>三等奖</td><td class='r'>3,000</td><td class='r'>11</td></tr><tr><td>四等奖</td><td class='r'>500</td><td class='r'>542</td></tr><tr><td>五等奖</td><td class='r'>30</td><td class='r'>10,427</td></tr><tr><td>六等奖</td><td class='r'>5</td><td class='r'>306,095</td></tr></tbody></table>
+  <div class="foot">共 3418 期 · 详情覆盖 90/3418 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/qxc.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="sfc">
+  <header>
+    <h2>胜负彩14场<span class="code">sfc</span></h2>
+    <button class="share" data-game="sfc" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26167</b> 期 · 2026-11-22 · 赛期制</div>
+  <div class="nums chips"><span class="chip">1</span><span class="chip">3</span><span class="chip">0</span><span class="chip">3</span><span class="chip">3</span><span class="chip">1</span><span class="chip">0</span><span class="chip">3</span><span class="chip">3</span><span class="chip">0</span><span class="chip">0</span><span class="chip">1</span><span class="chip">0</span><span class="chip">1</span></div>
+  <div class="meta">销售额 <b>30,166,730</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>185,847</td><td class='r'>102</td></tr><tr><td>二等奖</td><td class='r'>2,162</td><td class='r'>2,678</td></tr></tbody></table>
+  <div class="foot">共 3367 期 · 详情覆盖 90/3367 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/sfc.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="jq4">
+  <header>
+    <h2>四场进球<span class="code">jq4</span></h2>
+    <button class="share" data-game="jq4" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26241</b> 期 · 2026-11-22 · 赛期制</div>
+  <div class="nums chips"><span class="chip">1</span><span class="chip">3</span><span class="chip">2</span><span class="chip">2</span><span class="chip">0</span><span class="chip">1</span><span class="chip">0</span><span class="chip">1</span></div>
+  <div class="meta">销售额 <b>3,216,898</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>294,116</td><td class='r'>7</td></tr></tbody></table>
+  <div class="foot">共 3830 期 · 详情覆盖 90/3830 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/jq4.json">JSON ↗</a></div>
+</section>
+
+<section class="card" id="zc6">
+  <header>
+    <h2>六场半全场<span class="code">zc6</span></h2>
+    <button class="share" data-game="zc6" title="分享本彩种">↗ 分享</button>
+  </header>
+  <div class="issue">第 <b>26234</b> 期 · 2026-11-22 · 赛期制</div>
+  <div class="nums chips"><span class="chip">1</span><span class="chip">0</span><span class="chip">3</span><span class="chip">3</span><span class="chip">0</span><span class="chip">1</span><span class="chip">1</span><span class="chip">0</span><span class="chip">1</span><span class="chip">0</span><span class="chip">1</span><span class="chip">0</span></div>
+  <div class="meta">销售额 <b>1,130,576</b> 元</div>
+  <table class='prize'><thead><tr><th>奖级</th><th class='r'>单注奖金(元)</th><th class='r'>中奖注数</th></tr></thead><tbody><tr><td>一等奖</td><td class='r'>87,001</td><td class='r'>12</td></tr></tbody></table>
+  <div class="foot">共 3639 期 · 详情覆盖 90/3639 ·
+    <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/zc6.json">JSON ↗</a></div>
+</section></div>
+  <footer>
+    <b>开放数据（JSON，无需密钥）</b><br>
+    · 全彩种最新一期：<a href="latest.json">latest.json</a><br>
+    · 数据清单：<a href="index.json">index.json</a><br>
+    · 单彩种全历史：<code>data/{code}.json</code>（如 <a href="https://raw.githubusercontent.com/terry2010/china-lottery-caipiao-data/main/data/ssq.json">data/ssq.json</a>）<br>
+    <br>
+    项目仓库：<a href="https://github.com/terry2010/china-lottery-caipiao-data">terry2010/china-lottery-caipiao-data</a> · MIT License<br>
+    已知限制：快乐8 无分奖级数据；福彩3D 约 2022 年起中奖注数缺失；官方不公布购买人数。
+  </footer>
+</div>
+<div id="toast"></div>
+<div id="menu"><div class="sheet">
+  <button data-act="copyText">📋 复制开奖结果文本</button>
+  <button data-act="copyLink">🔗 复制本页链接</button>
+  <button data-act="weibo">微博分享</button>
+  <button data-act="x">分享到 X</button>
+  <button data-act="native">系统分享…</button>
+  <button data-act="close" style="color:#999">取消</button>
+</div></div>
+<script>
+const SITE = "https://terry2010.github.io/china-lottery-caipiao-data/";
+const DATA = {"games": {"ssq": {"name": "双色球", "latest": {"front": ["04", "05", "10", "17", "21", "32"], "back": ["08"], "issue": "2026134", "date": "2026-11-22", "prizes": [{"level": 1, "money": 6115183, "count": 13}, {"level": 2, "money": 102382, "count": 177}, {"level": 3, "money": 3000, "count": 2583}, {"level": 4, "money": 200, "count": 108192}, {"level": 5, "money": 10, "count": 1815077}, {"level": 6, "money": 5, "count": 18694906}], "sales": 435713586, "pool": 1154982023}}, "dlt": {"name": "超级大乐透", "latest": {"front": ["10", "11", "25", "30", "32"], "back": ["09", "10"], "issue": "26133", "date": "2026-11-21", "prizes": [{"level": 1, "money": 13261044, "count": 7}, {"level": 2, "money": 252738, "count": 126}, {"level": 3, "money": 5000, "count": 1206}, {"level": 4, "money": 300, "count": 22847}, {"level": 5, "money": 150, "count": 75885}, {"level": 6, "money": 15, "count": 1056336}], "sales": 343261615, "pool": 766933719}}, "sd": {"name": "福彩3D", "latest": {"numbers": ["4", "0", "8"], "issue": "2026312", "date": "2026-11-22", "prizes": [{"level": 1, "money": 1040, "count": 0}, {"level": 2, "money": 346, "count": 0}, {"level": 3, "money": 173, "count": 0}], "sales": 104983046, "zuxuan": "z6"}}, "pls": {"name": "排列3", "latest": {"numbers": ["7", "7", "1"], "issue": "26312", "date": "2026-11-22", "prizes": [{"level": 1, "money": 1040, "count": 20772}, {"level": 2, "money": 346, "count": 21705}, {"level": 3, "money": 173, "count": 0}], "sales": 40734872, "zuxuan": "z3"}}, "plw": {"name": "排列5", "latest": {"numbers": ["7", "7", "1", "4", "4"], "issue": "26312", "date": "2026-11-22", "prizes": [{"level": 1, "money": 100000, "count": 165}], "sales": 21207616, "pool": 32365874}}, "qlc": {"name": "七乐彩", "latest": {"front": ["02", "05", "12", "16", "24", "26", "30"], "back": ["08"], "issue": "2026134", "date": "2026-11-20", "prizes": [{"level": 1, "money": 0, "count": 0}, {"level": 2, "money": 25237, "count": 6}, {"level": 3, "money": 2610, "count": 116}, {"level": 4, "money": 200, "count": 566}, {"level": 5, "money": 50, "count": 4685}, {"level": 6, "money": 10, "count": 9717}, {"level": 7, "money": 5, "count": 55900}], "sales": 4568042, "pool": 1687619}}, "kl8": {"name": "快乐8", "latest": {"numbers": ["06", "07", "09", "11", "15", "17", "19", "28", "30", "31", "33", "36", "42", "43", "44", "51", "59", "62", "63", "79"], "issue": "2026312", "date": "2026-11-22", "sales": 102327224, "pool": 87410741}}, "qxc": {"name": "七星彩", "latest": {"numbers": ["7", "2", "4", "7", "6", "3", "14"], "issue": "26134", "date": "2026-11-22", "prizes": [{"level": 1, "money": 0, "count": 0}, {"level": 2, "money": 39298, "count": 11}, {"level": 3, "money": 3000, "count": 11}, {"level": 4, "money": 500, "count": 542}, {"level": 5, "money": 30, "count": 10427}, {"level": 6, "money": 5, "count": 306095}], "sales": 13204226, "pool": 3960337}}, "sfc": {"name": "胜负彩14场", "latest": {"numbers": ["1", "3", "0", "3", "3", "1", "0", "3", "3", "0", "0", "1", "0", "1"], "issue": "26167", "date": "2026-11-22", "prizes": [{"level": 1, "money": 185847, "count": 102}, {"level": 2, "money": 2162, "count": 2678}], "sales": 30166730}}, "jq4": {"name": "四场进球", "latest": {"numbers": ["1", "3", "2", "2", "0", "1", "0", "1"], "issue": "26241", "date": "2026-11-22", "prizes": [{"level": 1, "money": 294116, "count": 7}], "sales": 3216898}}, "zc6": {"name": "六场半全场", "latest": {"numbers": ["1", "0", "3", "3", "0", "1", "1", "0", "1", "0", "1", "0"], "issue": "26234", "date": "2026-11-22", "prizes": [{"level": 1, "money": 87001, "count": 12}], "sales": 1130576}}}};
+const $ = s => document.querySelector(s);
+const toast = m => { const t = $("#toast"); t.textContent = m; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1800); };
+const copy = async t => { try { await navigator.clipboard.writeText(t); toast("已复制"); }
+  catch { const ta = document.createElement("textarea"); ta.value = t;
+    document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); toast("已复制"); } };
+const fmt = v => (typeof v === "number") ? v.toLocaleString() : "-";
+const nums = r => r.front ? r.front.join(" ") + " + " + r.back.join(" ") : (r.numbers || []).join(" ");
+function shareText(code) {
+  const g = DATA.games[code]; if (!g) return SITE;
+  const r = g.latest; let s = `【${g.name}】第${r.issue}期 ${r.date} 开奖：${nums(r)}`;
+  const p1 = (r.prizes || [])[0];
+  if (p1) s += `｜一等奖 ${p1.count} 注，单注 ${fmt(p1.money)} 元`;
+  if (r.sales) s += `｜销量 ${fmt(r.sales)} 元`;
+  return s + `｜${SITE}#${code}`;
+}
+let current = "";
+function openMenu(code){ current = code || ""; $("#menu").classList.add("open"); }
+$("#menu").addEventListener("click", e => { if (e.target.id === "menu" || e.target.dataset.act === "close")
+  $("#menu").classList.remove("open"); });
+document.querySelectorAll(".share").forEach(b => b.onclick = () => openMenu(b.dataset.game));
+$("#shareTop").onclick = () => openMenu("");
+document.querySelectorAll("#menu button").forEach(b => b.onclick = async () => {
+  const act = b.dataset.act, url = SITE + (current ? "#" + current : ""), text = shareText(current || "ssq");
+  if (act === "copyText") copy(text);
+  else if (act === "copyLink") copy(url);
+  else if (act === "weibo") open("https://service.weibo.com/share/share.php?title=" + encodeURIComponent(text), "_blank");
+  else if (act === "x") open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text), "_blank");
+  else if (act === "native") { if (navigator.share) { try { await navigator.share({text, url}); } catch {} } else copy(text); }
+  $("#menu").classList.remove("open");
+});
+</script>
+</body>
+</html>
