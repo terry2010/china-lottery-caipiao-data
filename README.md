@@ -10,7 +10,8 @@ Daily-updated dataset of all 11 Chinese lottery games — draw numbers, **prize-
 
 ## 数据面板 / Dashboard
 
-👉 **[DASHBOARD.md](DASHBOARD.md)** — 各彩种最新一期开奖数据速览
+👉 **[在线数据站](https://terry2010.github.io/china-lottery-caipiao-data/)** — 最新一期开奖速览，带分享功能（GitHub Pages，每日随数据更新）
+👉 **[DASHBOARD.md](DASHBOARD.md)** — 仓库内的 Markdown 版速览
 
 ## 快速使用 / Quick start
 
