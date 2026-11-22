@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       backfill:
-        description: "回补全部历史期的奖级详情（慢，一次性使用）"
+        description: "回补全部历史期的奖级详情（慢，可分多次跑自动续接）"
         type: boolean
         default: false
 
@@ -18,9 +18,13 @@ concurrency:
   group: lottery-update
   cancel-in-progress: false
 
+env:
+  TYPES: "ssq dlt sd pls plw qlc kl8 qxc sfc jq4 zc6"
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 
@@ -31,25 +35,33 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
-      - name: Fetch lottery data
+      - name: Fetch + commit per lottery type (resumable)
         run: |
-          if [ "${{ inputs.backfill }}" = "true" ]; then
-            python scripts/fetch_lottery.py --full
-          else
-            python scripts/fetch_lottery.py
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for t in $TYPES; do
+            echo "===== $t ====="
+            if [ "${{ inputs.backfill }}" = "true" ]; then
+              python scripts/fetch_lottery.py --type "$t" --full || true
+            else
+              python scripts/fetch_lottery.py --type "$t" || true
+            fi
+            git add "data/$t.json" || true
+            git commit -m "chore(data): update $t" || true
+            git pull --rebase origin main || true
+            git push || true
+          done
 
       - name: Render dashboard
         run: python scripts/render_dashboard.py
 
-      - name: Commit changes
+      - name: Commit dashboard
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ DASHBOARD.md
+          git add DASHBOARD.md
           if git diff --cached --quiet; then
             echo "no changes"
           else
-            git commit -m "chore(data): auto update $(date -u +%Y-%m-%d)"
+            git commit -m "chore(dashboard): $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main || true
             git push
           fi

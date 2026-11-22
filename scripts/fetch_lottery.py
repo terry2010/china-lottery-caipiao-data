@@ -215,7 +215,10 @@ def update_one(code: str, details: int, full: bool):
             except Exception as e:
                 print(f"    详情失败 {r['issue']}: {e}")
                 fail += 1
-            if i % 50 == 0:
+            if i % 300 == 0:
+                save_data(code, payload)  # 断点保护：中途被杀也保留已抓详情
+                print(f"    详情进度 {i}/{len(need)}（已落盘）")
+            elif i % 50 == 0:
                 print(f"    详情进度 {i}/{len(need)}")
 
     if fail and ok == 0:
